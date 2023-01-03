@@ -1,0 +1,32 @@
+name: Run tests
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  
+jobs:
+  run-tests:
+    name: Prepare environment
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Setup Podman
+        run: |
+          sudo apt update
+          sudo apt-get -y install podman
+          podman pull fedora:37
+      - name: Get source
+        uses: actions/checkout@v3
+      - name: Create container
+        run: |
+          ./build_env.sh
+      - name: Run tests
+        run: |
+          ./run_test.sh
+      - name: Upload test results
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-results
+          path: ./build_out
+        if: ${{ always() }}

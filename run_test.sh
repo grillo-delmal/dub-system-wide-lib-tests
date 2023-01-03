@@ -15,6 +15,7 @@ podman run -ti --rm \
 echo
 
 # RUN TESTS
+RESULT=0
 for TEST_N in $(seq 0 4)
 do
 
@@ -31,9 +32,11 @@ do
         -w /opt \
         localhost/dub-test:latest \
         ./orig/run.sh
-
+    [[ "$?" != "0" ]] && RESULT=$(($RESULT + 1))
     podman unshare chown 0:0 -R $(pwd)/build_out/test${TEST_N}
 
     echo
 done
 
+echo "Errors: $RESULT"
+[[ "$RESULT" == "0" ]] && exit 0 || exit 1
