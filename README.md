@@ -22,13 +22,8 @@ work, so any comments are welcome.
 
 This test suite works using podman to run Fedora 37 containers.
 
-The podman image installs ldc2 from Fedora and dub from the 
-[grillo-delmal/dub-hack](https://copr.fedorainfracloud.org/coprs/grillo-delmal/dub-hack/package/dub/)
-copr repository, which currently has the latest dub commit packaged 
-([1.30.0^53.git1330c9d7](https://github.com/dlang/dub/tree/1330c9d7bfee19421ec23b3034d2584f6142f8c9)). 
-
-I maintain the spec file and patches for that dub package on https://github.com/grillo-delmal/dub-rpm, 
-I might change it in the future, so use under your own risk.
+The podman image installs ldc2 from Fedora and builds the latest dub version 
+from the git repository.
 
 This should just need podman to run. The tests are run through the `run_test.sh` script.
 
