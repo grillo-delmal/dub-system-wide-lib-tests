@@ -1,9 +1,18 @@
 #!/usr/bin/bash
-
-podman build -t dub-test .
+podman image exists localhost/dub-test
+if [ "$?" == "1" ]
+then
+    ./build_env.sh
+fi
 
 mkdir -p ./build_out
 rm -rf ./build_out/*
+
+echo "DUB VERSION:"
+podman run -ti --rm \
+        localhost/dub-test:latest \
+        git -C /opt/dub describe
+echo
 
 # RUN TESTS
 for TEST_N in $(seq 0 4)

@@ -23,7 +23,7 @@ work, so any comments are welcome.
 This test suite works using podman to run Fedora 37 containers.
 
 The podman image installs ldc2 from Fedora and builds the latest dub version 
-from the git repository.
+from the git repository. To build/update the container environment run the `build_env.sh` script.
 
 This should just need podman to run. The tests are run through the `run_test.sh` script.
 
