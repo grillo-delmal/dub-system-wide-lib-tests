@@ -20,7 +20,7 @@ work, so any comments are welcome.
 
 ## So ... how was this built ?
 
-This test system works using podman to run Fedora 37 containers.
+This test suite works using podman to run Fedora 37 containers.
 
 The podman image installs ldc2 from Fedora and dub from the 
 [grillo-delmal/dub-hack](https://copr.fedorainfracloud.org/coprs/grillo-delmal/dub-hack/package/dub/)
@@ -30,7 +30,7 @@ copr repository, which currently has the latest dub commit packaged
 I maintain the spec file and patches for that dub package on https://github.com/grillo-delmal/dub-rpm, 
 I might change it in the future, so use under your own risk.
 
-This should just needs podman to run. The tests are run through the `run_test.sh` script.
+This should just need podman to run. The tests are run through the `run_test.sh` script.
 
 ## And how does this work?
 
@@ -47,10 +47,10 @@ libraries pertaining the test and a run.sh script.
 
 The run script does the following:
 
-* Copy the `/opt/orig/local` into `/opt/src`.
+* Copy the `/opt/orig/local` folder into `/opt/src`.
 * Call dub to add all the local libraries.
-* Build the application.
-* Run the application.
+* Build the application on the `/opt/src/` folder.
+* Run the built application.
 
 The container is also configured to export some folders for debuging:
 
