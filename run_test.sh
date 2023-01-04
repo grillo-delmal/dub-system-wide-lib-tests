@@ -9,7 +9,7 @@ mkdir -p ./build_out
 rm -rf ./build_out/*
 
 echo "DUB VERSION:"
-podman run -ti --rm \
+podman run --rm \
         localhost/dub-test:latest \
         git -C /opt/dub describe
 echo
@@ -25,7 +25,7 @@ do
 
     podman unshare chown $UID:$UID -R $(pwd)/build_out/test${TEST_N}
 
-    podman run -ti --rm \
+    podman run --rm \
         -v $(pwd)/build_out/test${TEST_N}/src/:/opt/src/:Z \
         -v $(pwd)/build_out/test${TEST_N}/cache/:/root/.dub/:Z \
         -v $(pwd)/test${TEST_N}/:/opt/orig/:ro,Z \

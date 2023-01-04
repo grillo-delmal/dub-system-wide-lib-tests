@@ -1,13 +1,12 @@
 name: Run tests
 on:
   push:
-    branches:
-      - main
-  pull_request:
+    tags:
+      - '**'
   
 jobs:
   run-tests:
-    name: Prepare environment
+    name: Run Tests
     runs-on: ubuntu-latest
     
     steps:
