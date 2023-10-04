@@ -1,0 +1,34 @@
+name: Update dub
+
+on:
+  schedule:
+  - cron: "0 0 * * *"
+  workflow_dispatch:
+
+jobs:
+  release-check:
+    name: Release check
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.PAT }}
+      
+      - name: Run update script
+        run: |
+          ./update.sh
+        
+      - name: Commit changes
+        id: is-updated
+        run: |
+          git status -s -uno
+          [ -z "$(git status -s -uno)" ] || echo "updated=true" >> $GITHUB_OUTPUT
+      
+      - name: Commit and push to branch
+        if: steps.is-updated.outputs.updated
+        run: |
+          git config --global user.name 'Updater'
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git commit -am "Automated update"
+          git push origin HEAD:main
