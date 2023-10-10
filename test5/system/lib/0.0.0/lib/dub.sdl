@@ -1,0 +1,7 @@
+name "lib"
+description "A minimal test library."
+authors "Grillo del Mal"
+copyright "Copyright © 2022, Grillo del Mal"
+license "BSD 2-clause"
+
+version "0.0.0"
