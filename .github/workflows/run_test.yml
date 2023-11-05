@@ -3,7 +3,7 @@ on:
   push:
     branches:
       - main
-    workflow_dispatch:
+  workflow_dispatch:
   
 jobs:
   run-tests:
@@ -15,7 +15,7 @@ jobs:
         run: |
           sudo apt update
           sudo apt-get -y install podman
-          podman pull fedora:37
+          podman pull fedora:39
       - name: Get source
         uses: actions/checkout@v3
       - name: Create container
