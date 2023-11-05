@@ -9,11 +9,11 @@ mkdir -p /opt/src
 rsync -r /opt/orig/local/ /opt/src/
 
 # Build test
-cd /opt/src/lib2
-dub add-local /opt/src/lib
+cd /opt/src/app
+dub add-local /opt/src/lib2
 dub build \
     --skip-registry=all \
-    --compiler=ldc2 \
-    --deep
+    --compiler=ldc2
 
-echo "Works fine."
+# Run test
+./app

@@ -16,7 +16,7 @@ echo
 
 # RUN TESTS
 RESULT=0
-for TEST_N in $(seq 0 5)
+for TEST_N in $(seq 0 9)
 do
 
     echo "=== RUNNING TEST ${TEST_N} ==="

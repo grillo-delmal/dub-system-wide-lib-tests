@@ -10,7 +10,6 @@ rsync -r /opt/orig/local/ /opt/src/
 
 # Build test
 cd /opt/src/lib2
-dub add-local /opt/src/lib
 dub build \
     --skip-registry=all \
     --compiler=ldc2 \

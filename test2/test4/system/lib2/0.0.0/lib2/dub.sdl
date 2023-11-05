@@ -1,0 +1,9 @@
+name "lib2"
+description "A test library that uses lib."
+authors "Grillo del Mal"
+copyright "Copyright © 2022, Grillo del Mal"
+license "BSD 2-clause"
+
+dependency "lib" version="~>0.0.0"
+
+version "0.0.0"

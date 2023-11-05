@@ -9,8 +9,7 @@ mkdir -p /opt/src
 rsync -r /opt/orig/local/ /opt/src/
 
 # Build test
-cd /opt/src/lib2
-dub add-local /opt/src/lib
+cd /opt/src/lib3
 dub build \
     --skip-registry=all \
     --compiler=ldc2 \

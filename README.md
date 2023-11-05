@@ -20,7 +20,7 @@ work, so any comments are welcome.
 
 ## So ... how was this built ?
 
-This test suite works using podman to run Fedora 37 containers.
+This test suite works using podman to run Fedora 39 containers.
 
 The podman image installs ldc2 from Fedora and builds the latest dub version 
 from the git repository. To build/update the container environment run the `build_env.sh` script.
@@ -64,7 +64,7 @@ local library -> local app
 
 system library -> local app
 
-### Library depending on library
+### App depending on library depending on library
 
 #### Test 2
 
@@ -77,3 +77,28 @@ system library -> local library -> local app
 #### Test 4
 
 system library -> system library -> local app
+
+### library depending on library
+
+#### Test 5
+
+local library -> local library
+
+#### Test 6
+
+system library -> local library
+
+### Library depending on library depending on library
+
+#### Test 7
+
+local library -> local library -> local library
+
+#### Test 8
+
+system library -> local library -> local library
+
+#### Test 9
+
+system library -> system library -> local library
+
