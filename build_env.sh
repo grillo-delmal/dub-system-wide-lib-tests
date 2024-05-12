@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
 podman build \
-    --build-arg DUB_COMMIT=ae08003 \
+    --build-arg DUB_COMMIT=a87d3cc \
     -t dub-test .
