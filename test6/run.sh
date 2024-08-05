@@ -11,6 +11,7 @@ rsync -r /opt/orig/local/ /opt/src/
 # Build test
 cd /opt/src/lib2
 dub build \
+    $DUB_PARAMS \
     --skip-registry=all \
     --compiler=ldc2 \
     --deep

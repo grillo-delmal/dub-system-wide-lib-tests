@@ -12,6 +12,7 @@ rsync -r /opt/orig/local/ /opt/src/
 cd /opt/src/app
 dub add-local /opt/src/lib
 dub build \
+    $DUB_PARAMS \
     --skip-registry=all \
     --compiler=ldc2
 
