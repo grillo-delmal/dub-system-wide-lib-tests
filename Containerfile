@@ -10,7 +10,7 @@ ARG DUB_COMMIT
 
 # Download dub and checkout current commit
 WORKDIR /opt
-RUN git clone https://github.com/dlang/dub.git && \
+RUN git clone https://github.com/grillo-delmal/dub.git && \
     [[ ! -z "$DUB_COMMIT" ]] && \
         git -C /opt/dub checkout $DUB_COMMIT || \
     true
