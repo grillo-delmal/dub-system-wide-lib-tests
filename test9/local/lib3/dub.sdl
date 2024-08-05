@@ -1,5 +1,5 @@
-name "app"
-description "A minimal D application."
+name "lib3"
+description "A test library that uses lib2."
 authors "Grillo del Mal"
 copyright "Copyright © 2022, Grillo del Mal"
 license "BSD 2-clause"
