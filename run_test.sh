@@ -16,25 +16,24 @@ echo
 
 # RUN TESTS
 RESULT=0
-for TEST_N in $(seq 0 9)
-do
+for d in ./tests/*/ ; do
 
-    echo "=== RUNNING TEST ${TEST_N} ==="
+    echo "=== RUNNING $(basename $d) ==="
 
-    mkdir -p ./build_out/test${TEST_N}/{src,cache}
+    mkdir -p ./build_out/$(basename $d)/{src,cache}
 
-    podman unshare chown $UID:$UID -R $(pwd)/build_out/test${TEST_N}
+    podman unshare chown $UID:$UID -R $(pwd)/build_out/$(basename $d)
 
     podman run --rm \
-        -v $(pwd)/build_out/test${TEST_N}/src/:/opt/src/:Z \
-        -v $(pwd)/build_out/test${TEST_N}/cache/:/root/.dub/:Z \
-        -v $(pwd)/test${TEST_N}/:/opt/orig/:ro,Z \
+        -v $(pwd)/build_out/$(basename $d)/src/:/opt/src/:Z \
+        -v $(pwd)/build_out/$(basename $d)/cache/:/root/.dub/:Z \
+        -v $(pwd)/tests/$(basename $d)/:/opt/orig/:ro,Z \
         -e DUB_PARAMS="--vverbose --cache=local --temp-build" \
         -w /opt \
         localhost/dub-test:latest \
         ./orig/run.sh
     [[ "$?" != "0" ]] && RESULT=$(($RESULT + 1))
-    podman unshare chown 0:0 -R $(pwd)/build_out/test${TEST_N}
+    podman unshare chown 0:0 -R $(pwd)/build_out/$(basename $d)
 
     echo
 done
