@@ -15,5 +15,7 @@ dub build \
     --skip-registry=all \
     --compiler=ldc2
 
+cp -r /tmp/.dub/build/app-~master/* out
+cd out
 # Run test
 ./app

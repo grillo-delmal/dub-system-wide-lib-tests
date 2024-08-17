@@ -29,6 +29,7 @@ do
         -v $(pwd)/build_out/test${TEST_N}/src/:/opt/src/:Z \
         -v $(pwd)/build_out/test${TEST_N}/cache/:/root/.dub/:Z \
         -v $(pwd)/test${TEST_N}/:/opt/orig/:ro,Z \
+        -e DUB_PARAMS="--vverbose --cache=local --temp-build" \
         -w /opt \
         localhost/dub-test:latest \
         ./orig/run.sh
