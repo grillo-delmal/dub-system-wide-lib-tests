@@ -13,6 +13,7 @@ cd /opt/src/lib2
 dub add-local /opt/src/lib
 dub build \
     $DUB_PARAMS \
+    --cache=local --temp-build \
     --skip-registry=all \
     --compiler=ldc2 \
     --deep

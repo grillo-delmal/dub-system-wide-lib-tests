@@ -12,6 +12,7 @@ rsync -r /opt/orig/local/ /opt/src/
 cd /opt/src/app
 dub build \
     $DUB_PARAMS \
+    --cache=local --temp-build \
     --skip-registry=all \
     --compiler=ldc2
 

@@ -28,7 +28,7 @@ for d in ./tests/*/ ; do
         -v $(pwd)/build_out/$(basename $d)/src/:/opt/src/:Z \
         -v $(pwd)/build_out/$(basename $d)/cache/:/root/.dub/:Z \
         -v $(pwd)/tests/$(basename $d)/:/opt/orig/:ro,Z \
-        -e DUB_PARAMS="--vverbose --cache=local --temp-build" \
+        -e DUB_PARAMS="--vverbose" \
         -w /opt \
         localhost/dub-test:latest \
         ./orig/run.sh

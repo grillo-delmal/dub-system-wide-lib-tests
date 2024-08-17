@@ -14,6 +14,7 @@ dub add-local /opt/src/lib
 dub add-local /opt/src/lib2
 dub build \
     $DUB_PARAMS \
+    --cache=local --temp-build \
     --skip-registry=all \
     --compiler=ldc2
 
