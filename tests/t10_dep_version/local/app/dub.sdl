@@ -1,0 +1,3 @@
+name "app"
+dependency "lib1" version="0.0.0"
+dependency "lib2" version="0.0.0"
