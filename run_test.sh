@@ -8,10 +8,10 @@ fi
 mkdir -p ./build_out
 rm -rf ./build_out/*
 
-echo "DUB VERSION:"
+# DUB VERSION
 podman run --rm \
         localhost/dub-test:latest \
-        git -C /opt/dub describe
+        dub --version
 echo
 
 # RUN TESTS
