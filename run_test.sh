@@ -11,7 +11,7 @@ rm -rf ./build_out/*
 # DUB VERSION
 podman run --rm \
         localhost/dub-test:latest \
-        dub --version
+        bash -c "git -C /opt/dub describe; dub --version"
 echo
 
 # RUN TESTS
